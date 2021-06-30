@@ -3,6 +3,9 @@ import { StatusBar } from "react-native";
 import { Routes } from "./src/routes";
 import { Background } from "./src/components/Background";
 
+//aplicando contextos
+import { AuthProvider } from "./src/hooks/auth";
+
 // aplicando o loading das fonts carregadas
 import AppLoading from "expo-app-loading";
 
@@ -35,7 +38,9 @@ export default function App() {
         backgroundColor="transparent"
         translucent
       />
-      <Routes />
+      <AuthProvider>
+        <Routes />
+      </AuthProvider>
     </Background>
   );
 }
